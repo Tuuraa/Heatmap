@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+
+  heatmap-backend:
+    image: mongo:latest
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=
+      - MONGO_INITDB_ROOT_PASSWORD=
+    ports:
+      - '29000:27017'
+    volumes:
+      - ./docker/mongo/data:/data/db
+
+  heatmap-redis:
+    image: redis:latest
+    restart: always
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis-data:/data
+
+volumes:
+  redis-data:
