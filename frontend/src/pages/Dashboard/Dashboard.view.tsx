@@ -28,6 +28,7 @@ import CalendarMonthRoundedIcon from "@mui/icons-material/CalendarMonthRounded";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
 import PauseRoundedIcon from "@mui/icons-material/PauseRounded";
 import StopRoundedIcon from "@mui/icons-material/StopRounded";
+import type { DashboardController } from "./Dashboard.controller";
 
 const stats = [
   { title: "Total Projects", value: 24, subtitle: "+6 this month" },
@@ -125,7 +126,11 @@ function SidebarItem({
   );
 }
 
-export function Dashboard() {
+export type DashboardViewProps = {
+    controller: DashboardController;
+}
+
+export const DashboardView = ({ controller }: DashboardViewProps) => {
   return (
     <Box
       sx={{
@@ -580,7 +585,7 @@ export function Dashboard() {
                     mb: 1.5,
                   }}
                 >
-                  01:24:08
+                  {controller.formattedTime}
                 </Typography>
 
                 <Typography sx={{ fontSize: 13, color: "rgba(255,255,255,0.7)", mb: 3 }}>
@@ -588,13 +593,13 @@ export function Dashboard() {
                 </Typography>
 
                 <Stack direction="row" spacing={1.25}>
-                  <IconButton sx={{ bgcolor: "#2f7d57", color: "#fff", "&:hover": { bgcolor: "#28694a" } }}>
+                  <IconButton onClick={() => controller.startWorkSession()} sx={{ bgcolor: "#2f7d57", color: "#fff", "&:hover": { bgcolor: "#28694a" } }}>
                     <PlayArrowRoundedIcon />
                   </IconButton>
                   <IconButton sx={{ bgcolor: "#a77483", color: "#fff", "&:hover": { bgcolor: "#996a78" } }}>
                     <PauseRoundedIcon />
                   </IconButton>
-                  <IconButton sx={{ bgcolor: "#813d49", color: "#fff", "&:hover": { bgcolor: "#6c333d" } }}>
+                  <IconButton onClick={() => controller.endWorkSession()} sx={{ bgcolor: "#813d49", color: "#fff", "&:hover": { bgcolor: "#6c333d" } }}>
                     <StopRoundedIcon />
                   </IconButton>
                 </Stack>

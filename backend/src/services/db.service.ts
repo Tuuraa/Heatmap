@@ -9,5 +9,6 @@ export function db() {
 
     return {
         users: database.collection<UserModel>('users'),
+        work_sessions: database.collection('work_sessions')
     }
 }

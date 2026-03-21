@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router";
-import { Dashboard } from "../pages/Dashboard/Dashboard.view";
 import ProtectedLayout from "../layouts/ProtectedLayout";
 import { AuthLayout } from "../layouts/AuthLayout";
 import { SignUpPage } from "../pages/Auth/SignUp/SignUp.page";
 import { SignInPage } from "../pages/Auth/SignIn/SignIn.page";
 import { AppLayout } from "../layouts/AppLayout";
+import { DashboardPage } from "../pages/Dashboard/Dashboard.page";
 
 export function AppRouter() {
     return (
@@ -17,7 +17,7 @@ export function AppRouter() {
 
                 <Route element={<ProtectedLayout />}>
                     <Route element={<AppLayout />}>
-                        <Route path="/" element={<Dashboard />} />
+                        <Route path="/" element={<DashboardPage />} />
                     </Route>
                 </Route>
 

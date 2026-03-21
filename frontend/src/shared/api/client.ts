@@ -1,4 +1,4 @@
-import { AuthApi, Configuration, UsersApi } from "./generated";
+import { AuthApi, Configuration, UsersApi, WorkApi } from "./generated";
 
 export const apiConfig = new Configuration({
   basePath: "http://localhost:8000",
@@ -9,4 +9,5 @@ export const apiConfig = new Configuration({
 export const client = {
     auth: new AuthApi(apiConfig),
     users: new UsersApi(apiConfig),
+    work: new WorkApi(apiConfig)
 }

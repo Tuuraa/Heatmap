@@ -1,5 +1,5 @@
 import { BadRequestError, Body, JsonController, Post, Res } from "routing-controllers";
-import { RegisterRequest } from "../data/Auth/register.request";
+import { RegisterRequest } from "../data/Auth/RegusterRequest";
 import { Response } from "express";
 import { usersRepository } from "../repositories/users.repository";
 import { authService } from "../services/auth.service";
@@ -7,7 +7,7 @@ import { ResponseSchema } from "routing-controllers-openapi";
 import { config } from "../config";
 import { User } from "../data/user";
 import { UserMapper } from "../mappers/user.mapper";
-import { LoginRequest } from "../data/Auth/login.request";
+import { LoginRequest } from "../data/Auth/LoginRequest";
 import { passwordService } from "../services/password.service";
 
 @JsonController('/auth')
